@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,23 +23,39 @@ using System.Threading.Tasks;
 
  */
 
-namespace CodeEasier.Scene
+namespace CodeEasier.Scene.UI
 {
 
     /*
 
-        SceneDrawable interface
+        UI class
 
-        Usage : All the components that will be drawn in a scene must implement this interface
+        Usage : Call static method to get differents UI elements
 
     */
 
-    interface ICESceneDrawable
+    class CEUI
     {
 
-        void Load();
-        void Update(GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch);
+        public enum Type
+        {
+            None,
+            Button
+        }
+
+        /**
+         *  Static methods
+         */
+
+        /**
+         *  <param type="string" name="text">The text of the button</param>
+         *  <param type="string" name="themePath">The path of the file that represents the theme of the button</param>
+         *  <param type="Main" name="baseGame">The base game</param>
+         */
+        public static CEUIButton Button(string text, string themePath, Main baseGame)
+        {
+            return new CEUIButton(text, themePath, baseGame);
+        }
 
     }
 }

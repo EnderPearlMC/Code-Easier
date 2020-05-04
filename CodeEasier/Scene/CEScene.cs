@@ -1,5 +1,6 @@
 ﻿using CodeEasier.Scene;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace CodeEasier.Scene
 
     */
 
-    class CEScene
+    abstract class CEScene
     {
 
         /*
@@ -104,7 +105,7 @@ namespace CodeEasier.Scene
         {
             foreach (ICESceneDrawable drawable in Drawables)
             {
-                drawable.Draw();
+                drawable.Draw(BaseGame.spriteBatch);
             }
         }
 
